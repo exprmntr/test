@@ -5,8 +5,7 @@ if [ "${CB_BUILD_AGENT}" == 'clang-linux-x86_64-release-cuda' ]; then
     sudo dpkg -i cuda-repo-ubuntu1404-8-0-local-ga2_8.0.61-1_amd64.deb
     sudo apt-get update
     sudo apt-get install cuda
-    find /usr | grep cuda
-    ./ya make --stat -T -r -j 1 catboost/cuda/app -DCUDA_ROOT=/usr;
+    ./ya make --stat -T -r -j 1 catboost/cuda/app -DCUDA_ROOT=/usr/local/cuda-8.0;
     cp $(readlink -f catboost/cuda/app/cb_cuda) catboost-cuda-linux;
 fi
 
