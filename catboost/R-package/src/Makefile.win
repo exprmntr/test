@@ -1,0 +1,8 @@
+unexport YA_BUILD_RESULTS_REPORT
+
+.PHONY : all clean
+
+all:
+	$(CURDIR)/../../../ya.bat make -r -o ../../..
+
+clean:

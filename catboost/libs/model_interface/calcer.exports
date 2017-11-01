@@ -1,0 +1,14 @@
+C ModelCalcerCreate
+C ModelCalcerDelete
+
+C GetErrorString
+
+C LoadFullModelFromFile
+C CalcModelPrediction
+C CalcModelPredictionFlat
+C CalcModelPredictionWithHashedCatFeatures
+
+C GetStringCatFeatureHash
+C GetIntegerCatFeatureHash
+C GetFloatFeaturesCount
+C GetCatFeaturesCount

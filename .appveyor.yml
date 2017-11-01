@@ -1,0 +1,28 @@
+version: '{build}-{branch}'
+branches:
+  only:
+    - master
+
+skip_tags: true
+
+image:
+- Visual Studio 2015
+- Visual Studio 2017
+
+environment:
+  matrix:
+    - image: Visual Studio 2017
+      configuration: Release
+      arch: 64
+
+clone_folder: c:\projects\catboost
+
+install:
+  - git submodule update --init --recursive
+
+build_script:
+  - |
+    cd c:\projects\catboost
+    call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+    call ya.bat make --verbose --stat -rttt catboost\app
+
