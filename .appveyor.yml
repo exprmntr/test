@@ -22,8 +22,32 @@ install:
 
 build_script:
   - |
+    echo Downloading CUDA toolkit 8
+    appveyor DownloadFile  https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda_8.0.44_windows-exe -FileName cuda_8.0.44_windows.exe
+    echo Installing CUDA toolkit 8
+    cuda_8.0.44_windows.exe -s compiler_8.0 ^
+                               cublas_8.0 ^
+                               cublas_dev_8.0 ^
+                               cudart_8.0 ^
+                               curand_8.0 ^
+                               curand_dev_8.0
+    dir .
+
+    dir "%ProgramFiles%"
+    dir "C:\Program Files"
+    dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA"
+    dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0"
+    dir "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin"
+
+    if NOT EXIST "%ProgramFiles%\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin\cudart64_80.dll" ( 
+    echo "Failed to install CUDA"
+    exit /B 1
+    )
+
+    set PATH=%ProgramFiles%\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin;%PATH%
+
+    nvcc -V
     cd c:\projects\catboost
     call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
     call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
-    call ya.bat make --verbose --stat -r catboost\app
-
+    call ya.bat make --verbose --stat -r catboost\cuda\app -DCUDA_ROOT="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0"
