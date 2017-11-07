@@ -21,7 +21,7 @@ install:
   
 artifacts:
   - path: catboost/cuda/app/cb_cuda.exe
-  - path: '**\*.whl'
+  - path: 'catboost\**\*.whl'
 
 deploy:
   provider: GitHub
