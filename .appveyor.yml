@@ -19,6 +19,18 @@ clone_folder: c:\projects\catboost
 
 install:
   - git submodule update --init --recursive
+  
+artifacts:
+  - path: catboost/cuda/app/cb_cuda.exe
+  - path: '**\*.whl'
+
+deploy:
+  provider: GitHub
+  auth_token:
+    secure: 0UtNN1WVxsjuNRHVn7bmrRM86gKZ/RjtGzBbhWZFIqNSG/I8vTUofgrD7wnlAp6z
+  artifact: catboost/cuda/app/cb_cuda.exe, '**\*.whl'
+  on:
+    branch: master
 
 build_script:
   - |
@@ -41,7 +53,7 @@ build_script:
     cd c:\projects\catboost
     call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
     call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
-    rem call ya.bat make --verbose --stat -r catboost\cuda\app -DCUDA_ROOT="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0"
+    call ya.bat make -o . --verbose --stat -r catboost\cuda\app -DCUDA_ROOT="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0"
     cd catboost\python-package
     C:\Python27-x64\python.exe mk_wheel.py -DCUDA_ROOT="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0"
     C:\Python35-x64\python.exe mk_wheel.py -DCUDA_ROOT="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0"
