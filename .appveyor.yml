@@ -27,7 +27,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: 0UtNN1WVxsjuNRHVn7bmrRM86gKZ/RjtGzBbhWZFIqNSG/I8vTUofgrD7wnlAp6z
-  artifact: catboost/cuda/app/cb_cuda.exe, '**\*.whl'
+  artifact: catboost/cuda/app/cb_cuda.exe, 'catboost\**\*.whl'
   on:
     branch: master
 
