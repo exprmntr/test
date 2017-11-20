@@ -23,15 +23,6 @@ artifacts:
   - path: catboost/cuda/app/cb_cuda.exe
   - path: 'catboost\**\*.whl'
 
-deploy:
-  provider: GitHub
-  auth_token:
-    secure: 0UtNN1WVxsjuNRHVn7bmrRM86gKZ/RjtGzBbhWZFIqNSG/I8vTUofgrD7wnlAp6z
-  artifact: catboost/cuda/app/cb_cuda.exe, '/.*\.whl/'
-  on:
-    branch: master
-    appveyor_repo_tag: true
-
 build_script:
   - |
     echo Downloading CUDA toolkit 8
@@ -58,3 +49,4 @@ build_script:
     C:\Python27-x64\python.exe mk_wheel.py -DCUDA_ROOT="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0"
     C:\Python35-x64\python.exe mk_wheel.py -DCUDA_ROOT="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0"
     C:\Python36-x64\python.exe mk_wheel.py -DCUDA_ROOT="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0"
+
