@@ -47,13 +47,13 @@ fi
 
 if [ "${CB_BUILD_AGENT}" == 'clang-darwin-x86_64-release' ]; then
     ./ya make --stat -T -r -j 1 catboost/app;
-    cp $(readlink -f catboost/app/catboost) catboost-darwin;
+    cp $(readlink catboost/app/catboost) catboost-darwin;
 fi
 
 if [ "${CB_BUILD_AGENT}" == 'clang-darwin-x86_64-release-cuda' ]; then
     install_cuda_darwin;
     ./ya make --stat -T -r -j 1 catboost/cuda/app -DCUDA_ROOT=/usr/local/cuda;
-    cp $(readlink -f catboost/cuda/app/catboost) catboost-cuda-darwin;
+    cp $(readlink catboost/cuda/app/catboost) catboost-cuda-darwin;
 fi
 
 if [ "${CB_BUILD_AGENT}" == 'python2-darwin-x86_64-release' ]; then
