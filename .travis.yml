@@ -26,6 +26,7 @@ before_script: |
     unset CXX
 
 matrix:
+  include:
     - os: osx
       osx_image: xcode8.3
       language: cpp
