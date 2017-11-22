@@ -10,8 +10,7 @@ function install_cuda_linux()
 
 function install_cuda_darwin()
 {
-    wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_mac-dmg
-    mv cuda_8.0.61_mac-dmg cuda_8.0.61_mac.dmg
+    wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_mac-dmg -c -O cuda_8.0.61_mac.dmg
     hdiutil attach cuda_8.0.61_mac.dmg
     sudo /Volumes/CUDAMacOSXInstaller//CUDAMacOSXInstaller.app/Contents/MacOS/CUDAMacOSXInstaller --accept-eula --no-window
 }
