@@ -30,7 +30,7 @@ matrix:
     - os: osx
       osx_image: xcode8.2
       language: cpp
-      env: CB_BUILD_AGENT='clang-darwin-x86_64-release'
+      env: CB_BUILD_AGENT='clang-darwin-x86_64-release' CACHE_NAME=darwin
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
       deploy:
         provider: releases
@@ -42,7 +42,7 @@ matrix:
     - os: osx
       osx_image: xcode8.2
       language: cpp
-      env: CB_BUILD_AGENT='clang-darwin-x86_64-release-cuda'
+      env: CB_BUILD_AGENT='clang-darwin-x86_64-release-cuda' CACHE_NAME=darwin
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
       deploy:
         provider: releases
@@ -54,7 +54,7 @@ matrix:
     - os: osx
       osx_image: xcode8.2
       language: cpp
-      env: CB_BUILD_AGENT='python2-darwin-x86_64-release'
+      env: CB_BUILD_AGENT='python2-darwin-x86_64-release' CACHE_NAME=darwin
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
       deploy:
         provider: releases
@@ -67,7 +67,7 @@ matrix:
     - os: osx
       osx_image: xcode8.2
       language: cpp
-      env: CB_BUILD_AGENT='python35-darwin-x86_64-release'
+      env: CB_BUILD_AGENT='python35-darwin-x86_64-release' CACHE_NAME=darwin
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
       deploy:
         provider: releases
@@ -80,7 +80,7 @@ matrix:
     - os: osx
       osx_image: xcode8.2
       language: cpp
-      env: CB_BUILD_AGENT='python36-darwin-x86_64-release'
+      env: CB_BUILD_AGENT='python36-darwin-x86_64-release' CACHE_NAME=darwin
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
       deploy:
         provider: releases
