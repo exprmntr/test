@@ -28,7 +28,7 @@ before_script: |
 matrix:
   include:
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode8.2
       language: cpp
       env: CB_BUILD_AGENT='clang-darwin-x86_64-release'
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
@@ -40,7 +40,7 @@ matrix:
         on:
           tags: true
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode8.2
       language: cpp
       env: CB_BUILD_AGENT='clang-darwin-x86_64-release-cuda'
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
@@ -52,7 +52,7 @@ matrix:
         on:
           tags: true
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode8.2
       language: cpp
       env: CB_BUILD_AGENT='python2-darwin-x86_64-release'
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
@@ -65,7 +65,7 @@ matrix:
         on:
           tags: true
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode8.2
       language: cpp
       env: CB_BUILD_AGENT='python35-darwin-x86_64-release'
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
@@ -78,7 +78,7 @@ matrix:
         on:
           tags: true
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode8.2
       language: cpp
       env: CB_BUILD_AGENT='python36-darwin-x86_64-release'
       script: ~/build/${TRAVIS_REPO_SLUG}/ci/travis/script.sh
