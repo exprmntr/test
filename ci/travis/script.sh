@@ -69,8 +69,8 @@ fi
 
 if [ "${CB_BUILD_AGENT}" == 'python35-darwin-x86_64-release' ]; then
      install_cuda_darwin;
-     brew install pyenv;
-     #pyenv install 3.5.2;
+     #brew install pyenv;
+     pyenv install 3.5.2;
      cd catboost/python-package;
      $HOME/.pyenv/versions/3.5.2/bin/python3.5 ./mk_wheel.py -T -j 2 -DCUDA_ROOT=/usr/local/cuda;
 fi
