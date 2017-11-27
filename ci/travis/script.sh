@@ -10,6 +10,9 @@ function install_cuda_linux()
 
 function install_cuda_darwin()
 {
+    if [ -f $HOME/.ya/cuda_8.0.61_mac.dmg ]; then
+        rm $HOME/.ya/cuda_8.0.61_mac.dmg
+    fi
     if [ ! -f $HOME/.ya/cuda_9.0.176_mac.dmg ]; then
         wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_mac-dmg -c -O $HOME/.ya/cuda_9.0.176_mac.dmg
     fi
