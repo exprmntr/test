@@ -13,13 +13,13 @@ function install_cuda_darwin()
     if [ -f $HOME/.ya/cuda_8.0.61_mac.dmg ]; then
         rm $HOME/.ya/cuda_8.0.61_mac.dmg
     fi
-    if [ ! $(openssl dgst -md5 -r -hex $HOME/.ya/cuda_9.0.176_mac.dmg | awk '{print $1;}') == 19369a391a7475cace0f3c377aebbecb ]; then
+    if [ ! $(openssl dgst -md5 -hex $HOME/.ya/cuda_9.0.176_mac.dmg | awk '{print $2;}') == 19369a391a7475cace0f3c377aebbecb ]; then
         rm $HOME/.ya/cuda_8.0.61_mac.dmg
     fi
     
     if [ ! -f $HOME/.ya/cuda_9.0.176_mac.dmg ]; then
         wget https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_mac-dmg -c -O cuda_9.0.176_mac.dmg
-        if [ $(openssl dgst -md5 -r -hex cuda_9.0.176_mac.dmg | awk '{print $1;}') == 19369a391a7475cace0f3c377aebbecb ]; then
+        if [ $(openssl dgst -md5 -hex cuda_9.0.176_mac.dmg | awk '{print $2;}') == 19369a391a7475cace0f3c377aebbecb ]; then
            mv cuda_9.0.176_mac.dmg $HOME/.ya/cuda_9.0.176_mac.dmg
         else
            exit 1
