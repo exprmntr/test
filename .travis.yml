@@ -1,5 +1,6 @@
 sudo: required
 cache:
+  timeout: 1000
   packages: true
   apt: true
   directories:
