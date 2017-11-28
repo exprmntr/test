@@ -3,6 +3,8 @@
 
 namespace NKernel {
 
+
+
     struct TRadixSortContext : public IKernelContext {
 
         TRadixSortContext(ui32 firstBit, ui32 lastBit, ui32 valueSize, bool descending) {
@@ -39,6 +41,7 @@ namespace NKernel {
 
         TRadixSortContext() = default;
     };
+
 
     template<typename K, typename V>
     cudaError_t RadixSort(K *keys, V *values, ui32 size, TRadixSortContext& context, TCudaStream stream);
