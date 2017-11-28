@@ -14,7 +14,7 @@ function install_cuda_darwin()
         rm $HOME/.ya/cuda_8.0.61_mac.dmg
     fi
     if [ ! $(openssl dgst -md5 -hex $HOME/.ya/cuda_9.0.176_mac.dmg | awk '{print $2;}') == 19369a391a7475cace0f3c377aebbecb ]; then
-        rm $HOME/.ya/cuda_8.0.61_mac.dmg
+        rm $HOME/.ya/cuda_9.0.176_mac.dmg
     fi
     
     if [ ! -f $HOME/.ya/cuda_9.0.176_mac.dmg ]; then
