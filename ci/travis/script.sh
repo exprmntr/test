@@ -27,6 +27,7 @@ function install_cuda_darwin()
     fi
     hdiutil attach $HOME/.ya/cuda_9.0.176_mac.dmg
     sudo /Volumes/CUDAMacOSXInstaller//CUDAMacOSXInstaller.app/Contents/MacOS/CUDAMacOSXInstaller --accept-eula --no-window
+    exit 0  # XXX
 }
 
 if [ "${CB_BUILD_AGENT}" == 'clang-linux-x86_64-release-cuda' ]; then
