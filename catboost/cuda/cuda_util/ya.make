@@ -2,8 +2,6 @@ LIBRARY()
 
 NO_WERROR()
 
-
-
 SRCS(
    kernel/fill.cu
    kernel/scan.cu
