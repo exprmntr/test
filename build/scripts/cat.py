@@ -8,8 +8,8 @@ if __name__ == '__main__':
         if filename == "-":
             copy(sys.stdin, sys.stdout)
         else:
-            if os.path.exists(filename):
+            if not os.path.exists(filename):
+                sys.stderr.write('cat.py: {0}: No such file or directory\n'.format(filename))
+            else:
                 with open(filename, 'rb') as file:
                     copy(file, sys.stdout)
-            else:
-                sys.stderr.write('cat.py: {0}: No such file or directory\n'.format(filename))
